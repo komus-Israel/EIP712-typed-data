@@ -1,4 +1,5 @@
 import { sign } from "../functions"
+import Web3 from "web3"
 
 
 const Sign=()=>{
@@ -13,6 +14,7 @@ const Sign=()=>{
     
     
     let identity = [
+
         {name: "_from", type: "string"},
         {name: "_to", type: "string"},
         {name: "_amount", type: "uint256"}
@@ -23,11 +25,12 @@ const Sign=()=>{
         name: "TANGL",
         version: "1",
         chainId: 4,
-        verifyingContract: "0x549f71200b5Ee3F3C04EF5A29e7c70d40E42ed83"
+        verifyingContract: "0x549f71200b5Ee3F3C04EF5A29e7c70d40E42ed83",
+        salt: "0x54132a91a1bafcf3d90beaad0c0d5f0bda635715da5017e515739dbb823f282d"
     }
     
     let message = {
-        
+
         _from: "Mr Thomas Shelby",
         _to: "Miss Eda Shelby",
         _amount: 100,
@@ -44,12 +47,15 @@ const Sign=()=>{
         message: message
     
     })
+
+
+
     
-    let signer = "0xa3CfeF02b1D2ecB6aa51B133177Ee29764f25e31"
+    
 
     return (
         <div>
-            <button onClick={()=>sign(data, signer)}>Authorize Transaction</button>
+            <button onClick={()=>sign(data)}>Authorize Transaction</button>
         </div>
     )
 
