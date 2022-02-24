@@ -1,6 +1,6 @@
 import Web3 from "web3";
 
-export const sign=async(data)=>{
+export const sign=async(data, setSignature)=>{
 
     console.log("okay")
 
@@ -38,7 +38,8 @@ export const sign=async(data)=>{
                 console.log("r -->", r)
                 console.log("s -->", s)
                 console.log("v -->", v)*/
-                console.log(result.result)
+                //console.log(result.result)
+                setSignature(result.result)
             }
         }
     )

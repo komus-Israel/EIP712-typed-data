@@ -1,8 +1,11 @@
 import { sign } from "../functions"
 import Web3 from "web3"
+import { useState } from "react"
 
 
 const Sign=()=>{
+
+    const [signature, setSignature] = useState('')
 
     let domain = [
         {name: "name", type: "string"},
@@ -55,7 +58,8 @@ const Sign=()=>{
 
     return (
         <div>
-            <button onClick={()=>sign(data)}>Authorize Transaction</button>
+            <button onClick={()=>sign(data, setSignature)}>Authorize Transaction</button>
+            <p>{signature.length > 0 && "signature: " + signature}</p>
         </div>
     )
 
