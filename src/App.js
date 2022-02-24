@@ -7,6 +7,7 @@ import Web3 from 'web3';
 function App() {
 
   const [connectState, setConnectState] = useState(false)
+  const [hasWallet, setHasWallet] = useState(false)
 
   const connect=async()=>{
 
@@ -29,9 +30,22 @@ function App() {
 
   const checkWallet=async()=>{
 
+    
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
     const accounts = await web3.eth.getAccounts()
     accounts.length > 0 && setConnectState(true)
+
+    try {
+      const { ethereum } = window
+      ethereum.isMetaMask && setHasWallet(true)
+    } catch (err) {
+      console.log(err)
+    }
+
+    
+
+    
+
 
   }
 
@@ -46,7 +60,7 @@ function App() {
   return (
     <div className="App">
 
-      <button onClick={connect}>{connectState ? "wallet connected" : "connect wallet"}</button>
+      <button onClick={connect}>{(connectState && hasWallet) ? "wallet connected" : "connect wallet"}</button>
 
       <Sign />
 
