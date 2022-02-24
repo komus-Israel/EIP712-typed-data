@@ -60,7 +60,7 @@ function App() {
   return (
     <div className="App">
 
-      <button onClick={connect}>{(connectState && hasWallet) ? "wallet connected" : "connect wallet"}</button>
+      <button onClick={hasWallet ? connect : ()=>alert("install metamask")}>{(connectState && hasWallet) ? "wallet connected" : "connect wallet"}</button>
 
       <Sign />
 
