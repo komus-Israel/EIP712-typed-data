@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
 
-      <button onClick={connect}>{connectState ? "connected" : "wallet connected"}</button>
+      <button onClick={connect}>{connectState ? "wallet connected" : "connect wallet"}</button>
 
       <Sign />
 
