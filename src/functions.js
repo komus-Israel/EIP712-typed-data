@@ -28,7 +28,7 @@ export const sign=async(data, setSignature)=>{
             }
 
             else {
-                /*const signature = result.result.substring(2)
+                const signature = result.result.substring(2)
                 console.log(signature)
                 const r = "0x" + signature.substring(0, 64)
                 const s = "0x" + signature.substring(64, 128)
@@ -37,7 +37,7 @@ export const sign=async(data, setSignature)=>{
                 console.log("signature -->", signature)
                 console.log("r -->", r)
                 console.log("s -->", s)
-                console.log("v -->", v)*/
+                console.log("v -->", v)
                 //console.log(result.result)
                 setSignature(result.result)
             }
